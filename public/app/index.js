@@ -1,0 +1,9 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+require("hammerjs");
+var platform_browser_dynamic_1 = require("@angular/platform-browser-dynamic");
+var app_module_1 = require("./app.module");
+var platform = platform_browser_dynamic_1.platformBrowserDynamic();
+platform.bootstrapModule(app_module_1.default);
+
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC9pbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLG9CQUFrQjtBQUVsQiw4RUFBMkU7QUFFM0UsMkNBQXFDO0FBRXJDLElBQU0sUUFBUSxHQUFHLGlEQUFzQixFQUFFLENBQUM7QUFDMUMsUUFBUSxDQUFDLGVBQWUsQ0FBQyxvQkFBUyxDQUFDLENBQUMiLCJmaWxlIjoiYXBwL2luZGV4LmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0ICdoYW1tZXJqcyc7XHJcblxyXG5pbXBvcnQgeyBwbGF0Zm9ybUJyb3dzZXJEeW5hbWljIH0gZnJvbSAnQGFuZ3VsYXIvcGxhdGZvcm0tYnJvd3Nlci1keW5hbWljJztcclxuXHJcbmltcG9ydCBBcHBNb2R1bGUgZnJvbSAnLi9hcHAubW9kdWxlJztcclxuXHJcbmNvbnN0IHBsYXRmb3JtID0gcGxhdGZvcm1Ccm93c2VyRHluYW1pYygpO1xyXG5wbGF0Zm9ybS5ib290c3RyYXBNb2R1bGUoQXBwTW9kdWxlKTsiXX0=

@@ -1,4 +1,8 @@
 node_modules
-keys.*.ts
+*.keys.ts
 keys.ts
 connection.ts
+/data
+.env
+/public/**/*
+/common/**/*.js

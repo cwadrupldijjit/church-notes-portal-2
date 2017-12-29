@@ -16,9 +16,9 @@ const components = [
     declarations: components,
     exports: components,
 })
-class LoginLayoutModule {}
+class LandingLayoutModule {}
 
 export {
     components,
-    LoginLayoutModule,
+    LandingLayoutModule,
 };

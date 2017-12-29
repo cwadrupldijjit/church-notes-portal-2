@@ -4,7 +4,7 @@ import { RouterModule,
 
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { LandingLayoutComponent } from '../login/landing-layout/landing-layout.component';
+import { LandingLayoutComponent } from '../landing-layout/landing-layout.component';
 import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [

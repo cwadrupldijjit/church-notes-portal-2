@@ -73,7 +73,6 @@ function getCommonTsWatchTask() {
 }
 
 function startCommonTsWatch() {
-    console.log(commonTsSrc);
     return startWatch(commonTsSrc, getCommonTsWatchTask());
 }
 

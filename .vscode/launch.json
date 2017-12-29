@@ -7,8 +7,24 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
-            "program": "${file}",
+            "name": "Launch Server",
+            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/ts-node",
+            "args": [
+                "${workspaceRoot}/server/server.ts"
+            ],
+            "outFiles": [
+                "${workspaceRoot}/out/**/*.js"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Run Fixtures",
+            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/ts-node",
+            "args": [
+                "${workspaceRoot}/cli.ts",
+                "fixture-run"
+            ],
             "outFiles": [
                 "${workspaceRoot}/out/**/*.js"
             ]

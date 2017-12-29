@@ -4,6 +4,7 @@ import * as chalk from 'chalk';
 import { host,
          port,
          protocol } from './config';
+import { bootstrapDb } from './database';
 
 import decorateApp from './middleware/app-decorator.middleware';
 import delegateRoutes from './routers/delegate.router';
@@ -11,6 +12,8 @@ import delegateRoutes from './routers/delegate.router';
 const app = express();
 
 decorateApp(app);
+
+bootstrapDb();
 
 delegateRoutes(app);
 

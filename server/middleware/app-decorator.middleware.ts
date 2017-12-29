@@ -1,21 +1,18 @@
 import * as express from 'express';
 import * as bodyParser from 'body-parser';
 import * as helmet from 'helmet';
-import * as session from 'express-session';
+import * as fingerprint from 'express-fingerprint';
 
 import logRequests from './logRequests.middleware';
-
-import { sessionSecret } from '../config';
+import { passport } from '../auth';
 
 function decorateApp(app: express.Application) {
     app.use(logRequests());
     app.use(helmet());
     app.use(bodyParser.json());
-    app.use(session({
-        secret: sessionSecret,
-        saveUninitialized: true,
-        resave: false,
-    }));
+    app.use(fingerprint())
+    
+    app.use(passport.initialize());
     
     return app;
 }

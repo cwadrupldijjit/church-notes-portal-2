@@ -16,11 +16,11 @@ function configureRegister(passport: p) {
                 ],
             })
             .then(user => {
-                const match = user || (user.email == email ? 'email' : 'username');
+                const match = user && (user.email == email ? 'email' : 'username');
                 if (match)
                     throw `Unable to create user, ${match} is already taken`;
                 
-                return UserModel.create({ username, password, email });
+                return UserModel.create({ username, password, email, joinedOn: Date.now(),  });
             })
             .then(user => {
                 done(null, user);

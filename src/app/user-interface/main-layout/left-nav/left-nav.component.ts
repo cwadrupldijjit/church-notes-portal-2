@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
     moduleId: module.id,
     selector: 'left-nav',
     styleUrls: [
-        './left-nav.styles.scss',
+        './left-nav.styles.css',
     ],
     templateUrl: './left-nav.template.html',
 })

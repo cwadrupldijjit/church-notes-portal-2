@@ -54,12 +54,8 @@ System.config({
         tslib: {
             main: 'tslib.js',
         },
-        '../**': {
-            main: 'index.js',
-        },
-        './**': {
-            main: 'index.js',
-        } 
+        // <local-modules>
+        // <end-local-modules>
     },
     paths: {
         'npm:': '/node_modules/',

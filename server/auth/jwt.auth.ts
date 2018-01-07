@@ -5,7 +5,7 @@ import { UserModel, SessionModel } from '../database';
 import { JWTSecret } from '../config';
 
 function configureJWT(passport: p) {
-    passport.use(new JWTStrategy({
+    passport.use('jwt', new JWTStrategy({
             secretOrKey: JWTSecret,
             jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
             passReqToCallback: true,

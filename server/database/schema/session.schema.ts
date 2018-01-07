@@ -22,10 +22,12 @@ SessionSchema.pre('save', function(next) {
     if ((this as SessionDocument).lastActive instanceof Date) {
         this.lastActive = this.lastActive.getTime();
     }
+    
+    next();
 });
 
-SessionSchema.post('init', function(done, doc) {
-    //
+SessionSchema.post('init', function(err, doc, done) {
+    done();
 });
 
 const SessionModel = model('Session', SessionSchema) as Model<SessionDocument>;

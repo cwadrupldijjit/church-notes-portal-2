@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
     moduleId: module.id,
     selector: 'not-found',
     styleUrls: [
-        './not-found.styles.scss'
+        './not-found.styles.css'
     ],
     templateUrl: './not-found.template.html',
 })

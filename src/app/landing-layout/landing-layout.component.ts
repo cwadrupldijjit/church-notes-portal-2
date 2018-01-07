@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
     moduleId: module.id,
     selector: 'landing-layout',
     styleUrls: [
-        './landing-layout.styles.scss',
+        './landing-layout.styles.css',
     ],
     templateUrl: './landing-layout.template.html',
 })

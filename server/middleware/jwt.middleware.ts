@@ -11,13 +11,13 @@ declare module 'express' {
     }
 }
 
-async function generateAuthToken() {
+function generateAuthToken() {
     return (req: Req, res: Res, next: Next) => {
         const token = jwt.sign({
             id: req.user._id,
         }, JWTSecret, {
             jwtid: guid.raw(),
-            expiresIn: 30,
+            expiresIn: 86400,
         });
         
         req.token = token;
@@ -27,7 +27,15 @@ async function generateAuthToken() {
                 fingerprint: req.fingerprint.hash,
                 token,
             } as Session)
-            
+            .then(session => {
+                res.header('Authorization', `Bearer ${token}`);
+                
+                next();
+            })
+            .catch(err => {
+                res.status(500)
+                    .send({ message: 'Something went wrong.  Error code: 780', code: 780 });
+            });
     };
 }
 

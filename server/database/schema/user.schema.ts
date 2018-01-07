@@ -12,22 +12,27 @@ type UserDocument = Document & {
 const UserSchema = new Schema({
     password: { type: String, required: true },
     username: { type: String, required: true, unique: true },
-    lastActive: { type: Number, required: true },
-    joinedOn: { type: Number, required: true },
+    lastActive: { type: Number },
+    joinedOn: { type: Number },
     email: { type: String, required: true, unique: true },
 });
 
-UserSchema.pre('save', function() {
-    if ((this as UserDocument).isNew)
+UserSchema.pre('save', function(next) {
+    if ((this as UserDocument).isNew) {
         (this as UserDocument).joinedOn = Date.now();
+        (this as UserDocument).lastActive = Date.now();
+    }
     
     if ((this as UserDocument).isModified('password'))
         (this as UserDocument).password = encryptPassword(this.password);
+    
+    next();
 });
 
 UserSchema.post('init', function(err, doc, next) {
     (this as UserDocument).joinedOn = new Date(this.joinedOn);
     (this as UserDocument).lastActive = this.lastActive ? new Date(this.lastActive) : null;
+    this.password = '';
 });
 
 const UserModel = model('User', UserSchema) as Model<UserDocument>

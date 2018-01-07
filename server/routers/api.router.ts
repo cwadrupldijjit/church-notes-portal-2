@@ -1,6 +1,9 @@
 import * as express from 'express';
+import { passport } from '../auth';
 
 const ApiRouter = express.Router();
+
+ApiRouter.use(passport.authenticate('jwt', { session: false }));
 
 ApiRouter.all('*', (req, res) => {
     res.status(404).send({

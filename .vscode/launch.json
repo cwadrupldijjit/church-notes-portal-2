@@ -7,6 +7,19 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Gulp",
+            "program": "${workspaceFolder}/node_modules/gulp/bin/gulp.js",
+            "cwd": "${workspaceFolder}",
+            "args": [
+                // ""
+            ],
+            "outFiles": [
+                "${workspaceFolder}/**/*.js"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Launch Server",
             "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/ts-node",
             "args": [

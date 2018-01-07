@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
     moduleId: module.id,
     selector: 'login-box',
     styleUrls: [
-        './login-box.styles.scss',
+        './login-box.styles.css',
     ],
     templateUrl: './login-box.template.html',
 })

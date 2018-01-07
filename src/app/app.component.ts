@@ -6,7 +6,7 @@ import { Component,
     moduleId: module.id,
     selector: 'app',
     styleUrls: [
-        './global.styles.scss',
+        './global.styles.css',
     ],
     template: `
         <left-nav></left-nav>

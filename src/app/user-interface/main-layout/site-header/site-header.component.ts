@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
     moduleId: module.id,
     selector: 'site-header',
     styleUrls: [
-        './site-header.styles.scss',
+        './site-header.styles.css',
     ],
     templateUrl: './site-header.template.html',
 })

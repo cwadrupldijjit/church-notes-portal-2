@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
     moduleId: module.id,
     selector: 'login-form',
     styleUrls: [
-        './login-form.styles.scss',
+        './login-form.styles.css',
     ],
     templateUrl: './login-form.template.html',
 })

@@ -7,11 +7,19 @@ import { rootPath,
          constructSrcPath,
          publicTsSrc,
          commonTsSrc,
-         commonPath } from './paths.build';
+         commonPath, 
+         srcPath} from './paths.build';
 import { watchSrc,
          watchCommon,
          startWatch } from './watch.build';
 import { logError } from './error.build';
+import { systemIndex } from '../plugins';
+
+const systemIndexPrepared = systemIndex({
+    root: rootPath,
+    srcFolder: srcPath,
+    destFolder: publicPath,
+});
 
 gulp.task('tsc:public:dev', getPublicDevTask());
 gulp.task('tsc:common:dev', getCommonDevTask());
@@ -21,6 +29,7 @@ gulp.task('tsc:common:prod', getCommonProdTask());
 function getPublicDevTask() {
     return () => gulp.src(publicTsSrc)
         .pipe(sourcemaps.init())
+            .pipe(systemIndexPrepared)
             .pipe(createPublicTsProject()())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(publicPath))
@@ -38,6 +47,7 @@ function getCommonDevTask() {
 
 function getPublicProdTask() {
     return () => gulp.src(publicTsSrc)
+        .pipe(systemIndexPrepared)
         .pipe(createPublicTsProject()())
         .pipe(gulp.dest(publicPath))
         .on('error', logError);
@@ -53,6 +63,7 @@ function getCommonProdTask() {
 function getPublicTsWatchTask() {
     return (file) => watchSrc(file, 'public:ts:watch')
         .pipe(sourcemaps.init())
+            .pipe(systemIndex({ root: rootPath, srcFolder: srcPath, destFolder: publicPath }))
             .pipe(createPublicTsProject()())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(publicPath))
